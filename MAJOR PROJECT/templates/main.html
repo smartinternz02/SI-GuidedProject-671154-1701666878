@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottle Classification</title>
+    <style>
+        body {
+            background-color: #add8e6; /* Light blue background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+        }
+        h1 {
+            text-align: center;
+            color: #008080; /* Dark cyan color */
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #008080; /* Dark cyan color */
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #ffffff; /* White background */
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #add8e6; /* Light blue background on hover */
+        }
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            border: 2px solid #008080; /* Dark cyan border */
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: #008080; /* Dark cyan background */
+            color: #ffffff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #006666; /* Darker cyan on hover */
+        }
+        #imagePreview {
+            display: block;
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Bottle Classification</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+        </nav>
+        <form action="/classification.html" method="post" enctype="multipart/form-data">
+            <input type="file" id="imageInput" name="image" onchange="previewImage()">
+            <input type="submit" value="Predict">
+        </form>
+        <img id="imagePreview" src="#" alt="Image Preview"> <!-- Container for image preview -->
+    </div>
+
+    <script>
+        function previewImage() {
+            var preview = document.getElementById('imagePreview');
+            var file = document.getElementById('imageInput').files[0];
+
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+            } else {
+                preview.src = '';
+            }
+        }
+    </script>
+</body>
+</html>
